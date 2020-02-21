@@ -7,7 +7,8 @@ import ShopPage from './pages/shop/shoppage.components';
 import './pages/signinpage/signinpage.component'
 import Header from './components/header/header.component';
 import SignInPage from './pages/signinpage/signinpage.component';
-import { auth } from './firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+
 
 
 class App extends React.Component {
@@ -23,11 +24,11 @@ class App extends React.Component {
 
   componentDidMount(){
     //firebase method
-    this.unsunbscribeFromAuth = auth.onAuthStateChanged(user =>{ 
-      this.setState({currentUser: user})
-
-      console.log(user);
-    })
+    this.unsunbscribeFromAuth = auth.onAuthStateChanged(async user =>{ 
+      //this.setState({currentUser: user})
+      createUserProfileDocument(user);
+      
+    });
   }
 
   //when app closes, logout
