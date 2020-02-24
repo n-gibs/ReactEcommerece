@@ -21,6 +21,7 @@ const config = {
     
     const userRef = firestore.doc(`users/${userAuth.uid}`);
 
+    //get snapshot
     const snapShot = await userRef.get();
 
     if(!snapShot.exists){
