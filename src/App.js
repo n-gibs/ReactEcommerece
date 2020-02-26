@@ -19,11 +19,10 @@ class App extends React.Component {
   unsunbscribeFromAuth = null;
 
   componentDidMount(){
-    const {setCurrentUser} = this.props;
+    const { setCurrentUser } = this.props;
     //firebase method
     this.unsunbscribeFromAuth = auth.onAuthStateChanged(async userAuth => { 
-      //this.setState({currentUser: user})
-      //createUserProfileDocument(user);'=
+
       if(userAuth){
         const userRef = await createUserProfileDocument(userAuth);
         
