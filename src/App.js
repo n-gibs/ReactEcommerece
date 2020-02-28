@@ -5,7 +5,7 @@ import { createStructuredSelector } from "reselect";
 
 import './App.css';
 import HomePage from './pages/homepage/homepage.component';
-import ShopPage from './pages/shop/shoppage.components';
+import ShopPage from './pages/shop/shoppage.component';
 import Header from './components/header/header.component';
 import SignInPage from './pages/signinpage/signinpage.component';
 import CheckoutPage from './pages/checkout/checkout.component';
@@ -34,13 +34,11 @@ class App extends React.Component {
           setCurrentUser({
             id: snapShot.id,
             ...snapShot.data()
-            }
-          );
+            });
         });
       }
-      else{ //if no user Auth
-        this.setState({currentUser: userAuth});
-      }
+      setCurrentUser(userAuth);
+      
     });
   }
 
@@ -73,7 +71,8 @@ class App extends React.Component {
   }
 }
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
+
 });
 
 const mapDispatchToProps = dispatch => ({
