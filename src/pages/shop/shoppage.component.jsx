@@ -6,7 +6,7 @@ import CollectionOverview from '../../components/collections-overview/collection
 import CollectionPage from '../collection/collection-page.component';
 import WithSpinner from '../../components/with-spinner/with-spinner.component';
 import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/firebase.utils'
-import { updateCollections} from '../../redux/shop/shop-data.actions';
+import { updateCollections} from '../../redux/shop/shop.actions';
 //import SHOP_DATA from './shop.data.js'
 
 const CollectionOverviewWithSpinner = WithSpinner(CollectionOverview);
