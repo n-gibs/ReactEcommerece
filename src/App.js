@@ -11,7 +11,7 @@ import SignInPage from './pages/signinpage/signinpage.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 
 
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+//import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from "./redux/user/user.selectors";
 
@@ -22,24 +22,24 @@ class App extends React.Component {
   unsunbscribeFromAuth = null;
 
   componentDidMount(){
-    const { setCurrentUser } = this.props;
+    //const { setCurrentUser } = this.props;
     //firebase method
-    this.unsunbscribeFromAuth = auth.onAuthStateChanged(async userAuth => { 
+    // this.unsunbscribeFromAuth = auth.onAuthStateChanged(async userAuth => { 
 
-      if(userAuth){
-        const userRef = await createUserProfileDocument(userAuth);
+    //   if(userAuth){
+    //     const userRef = await createUserProfileDocument(userAuth);
         
-        //update current user
-        userRef.onSnapshot(snapShot => {
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data()
-            });
-        });
-      }
-      setCurrentUser(userAuth);
+    //     //update current user
+    //     userRef.onSnapshot(snapShot => {
+    //       setCurrentUser({
+    //         id: snapShot.id,
+    //         ...snapShot.data()
+    //         });
+    //     });
+    //   }
+    //   setCurrentUser(userAuth);
       
-    });
+    // });
   }
 
   //when app closes, logout
