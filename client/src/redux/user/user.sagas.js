@@ -21,7 +21,7 @@ export function* getSnapshotFromUserAuth(userAuth, additionalData){
 //worker
 export function* signInWithGoogle(){
   try{
-    //need to access valu returned
+    //need to access value returned
     const { user } = yield auth.signInWithPopup(googleProvider);
     yield getSnapshotFromUserAuth(user);
   }catch(error){
@@ -100,7 +100,7 @@ export function* signUp({payload: {email, password, displayName}}){
   }
 }
 
-//watcer
+//watcher
 export function* onSignUpStart(){
   yield takeLatest(UserActionTypes.SIGN_UP_START, signUp);
 }

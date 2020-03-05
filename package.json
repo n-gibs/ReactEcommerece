@@ -2,8 +2,8 @@
   "name": "clothingecomm-server",
   "version": "1.0.0",
   "engines": {
-    "node" : "12.16.0",
-    "npm": "6.13.4"
+    "node": "10.16.0",
+    "npm": "6.9.0"
   },
   "scripts": {
     "client": "cd client && npm start",
